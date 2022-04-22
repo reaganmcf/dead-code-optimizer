@@ -1,5 +1,6 @@
 import sys
 from parser import parse
+from depgraph import DepGraph
 
 if __name__ == '__main__':
     if len(sys.argv) != 1:
@@ -8,6 +9,12 @@ if __name__ == '__main__':
 
     # parse instructions
     instructions = parse()
+
+    # Build graph
+    graph = DepGraph(instructions)
+
+    # Perform optimization pass
+    graph.mark_reachable_code()
 
     for ixn in instructions:
         print(ixn)
