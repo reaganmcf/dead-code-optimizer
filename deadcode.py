@@ -16,6 +16,16 @@ if __name__ == '__main__':
     # Perform optimization pass
     graph.mark_reachable_code()
 
-    for ixn in instructions:
-        print(ixn)
+    # remove dead instructions
+    optimized_ixns = []
+    for node in graph.nodes.values():
+        if node.critical:
+            optimized_ixns.append(node.instruction)
+
+    for ixn in optimized_ixns:
+        print(ixn.iloc_str())
+
+    print("-----")
+    percentage_removed = (len(instructions) - len(optimized_ixns)) / len(instructions)
+    print(f"Original: {len(instructions)} vs Optimized: {len(optimized_ixns)}")
 
