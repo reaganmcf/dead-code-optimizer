@@ -42,10 +42,10 @@ class DepGraph:
         while not reached_fixed_point:
             new_leaves = []
             for leave in leaves:
-                print(f"Finding deps for leave: {leave}")
+                #print(f"Finding deps for leave: {leave}")
                 reachable_nodes = self.get_deps(leave)
                 for node in reachable_nodes:
-                    print(f"\tFound reachable node from leave: {node.instruction}")
+                    #print(f"\tFound reachable node from leave: {node.instruction}")
                     node.critical = True
                     new_leaves.append(node)
                 

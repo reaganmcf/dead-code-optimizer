@@ -25,7 +25,6 @@ if __name__ == '__main__':
     for ixn in optimized_ixns:
         print(ixn.iloc_str())
 
-    print("-----")
     percentage_removed = (len(instructions) - len(optimized_ixns)) / len(instructions)
-    print(f"Original: {len(instructions)} vs Optimized: {len(optimized_ixns)}")
+    print(f"Original: {len(instructions)} vs Optimized: {len(optimized_ixns)}", file = sys.stderr)
 
